@@ -1,0 +1,1073 @@
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div
+      id="ik8a"
+      class="col-4 h-100 overflow-auto bg-secondary-subtle col-xl-3 col-lg-3 d-md-none d-sm-none d-none d-lg-block col-xxl-3 ps-xxl-5 ps-5 pt-5 pb-5"
+    >
+      <nav
+        id="navbar"
+        class="h-100 flex-column align-items-stretch pe-4 border-end"
+      >
+        <span id="i0vidu" class="fw-bold">Messages plugin</span>
+        <nav id="ii1vs" class="nav flex-column mt-2">
+          <a href="#usage" id="iv2hh" class="nav-link">Usage</a>
+          <nav id="iny9o2" class="nav flex-column">
+            <a href="#usage-settings" id="igugwj" class="nav-link ms-2 my-1">
+              Settings
+            </a>
+            <a
+              href="#usage-smtp-settings"
+              id="imglsl"
+              class="nav-link ms-2 my-1"
+            >
+              SMTP Settings
+            </a>
+            <a
+              href="#usage-send-message"
+              id="imglfsl"
+              class="nav-link ms-2 my-1"
+            >
+              Send a message
+            </a>
+            <a
+              href="#usage-messages-log"
+              id="imgslsl"
+              class="nav-link ms-2 my-1"
+            >
+              Messages log
+            </a>
+            <a
+              href="#usage-send-message-attach"
+              id="imgslsl-2"
+              class="nav-link ms-2 my-1"
+            >
+              Send a message with attachment (SMTP)
+            </a>
+            <a
+              href="#usage-security"
+              id="imgslsl-2-2"
+              class="nav-link ms-2 my-1"
+            >
+              Handle security access
+            </a>
+          </nav>
+        </nav>
+        <nav id="ii1vs-2" class="nav flex-column mt-2">
+          <a href="#create" id="iv2hh-2" class="nav-link">Create transports</a>
+          <nav id="iomcst" class="nav flex-column">
+            <a
+              href="#create-to-complete"
+              id="imglsl-2"
+              class="nav-link ms-2 my-1"
+            >
+              TO COMPLETE
+            </a>
+          </nav>
+        </nav>
+      </nav>
+    </div>
+    <div
+      id="ih5ah"
+      class="h-100 overflow-auto col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 col-xxl-9 pt-5 ps-5 pb-5 pe-5"
+    >
+      <div
+        data-bs-spy="scroll"
+        data-bs-target="#navbar"
+        data-bs-smooth-scroll="true"
+        class="row"
+      >
+        <div id="usersApi" class="col-12">
+          <h3 id="i67er">Messages plugin</h3>
+          <p id="ioyf2">This plugin helps sending messages</p>
+        </div>
+        <div id="backOffice" class="col-12">
+          <h4 id="usage">Usage</h4>
+          <p>This section describe how to use the plugin to send messages</p>
+        </div>
+        <div id="backOffice-settings" class="col-12">
+          <h5 id="usage-settings">Settings</h5>
+          <p id="if83i">
+            To be able to send messages, you must add transport settings. The
+            transport are stored in the table&nbsp;
+            <code>messages.transport</code>
+            <br />
+          </p>
+          <p id="iwyk6">For each transport, we must define</p>
+          <table id="ij17q8" class="table">
+            <thead>
+              <tr>
+                <th scope="col" id="i1g54k">Setting</th>
+                <th scope="col" id="ihg1p2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="i13w4v">
+                <td id="iglxs"><code id="ie92bw">code</code></td>
+                <td id="iq2ff">
+                  It is a unique code of the transport. It must be unique and
+                  will be used to identify the transport
+                </td>
+              </tr>
+              <tr id="igx687">
+                <td id="izg59"><code id="ie92bw-2">name</code></td>
+                <td id="i9df8n">Description of the transport</td>
+              </tr>
+              <tr id="icv2o9">
+                <td id="iuk8q"><code id="ie92bw-3">type</code></td>
+                <td id="iezdtp">
+                  The type of transport. By default only the type
+                  <code>smtp</code>
+                  is supported. Other plugin can add more transport
+                  implementation (ex: sms...) See below to see how to implement
+                  a transport
+                </td>
+              </tr>
+              <tr id="itgz0b">
+                <td id="ittikg"><code id="ie92bw-4">active</code></td>
+                <td id="icvirg">
+                  If
+                  <code>true</code>
+                  , the transport can be user to send message. Default:
+                  <code>true</code>
+                </td>
+              </tr>
+              <tr id="itgz0b-2">
+                <td id="ittikg-2"><code id="ie92bw-4-2">settings</code></td>
+                <td id="icvirg-2">
+                  The settings of the transport. Its content depends on the type
+                  of the transport
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="i9omff" class="col-12">
+          <h5 id="usage-smtp-settings">SMTP settings</h5>
+          <p id="i1dm2h">
+            By default the plugin provide SMTP transport to send email
+          </p>
+          <p id="iycbgt">
+            The SMTP transport is based on nodemailer. All SMTP transport
+            options are supported
+          </p>
+          <p id="iaq8j7">Below is the most common example :&nbsp;</p>
+          <code lang="json">
+            <pre id="i1q9rt">
+{
+  "host": "smtp.ethereal.email",
+  "port": 587,
+  "secure": false, // true for port 465, false for other ports
+  "auth": {
+    "user": "maddison53@ethereal.email",
+    "pass": "jn7jnAPss4f63QBp6D",
+  },
+}
+                </pre
+            >
+          </code>
+          <div id="iij56k-2" class="row">
+            <div id="ibenpa" class="col-12 col-lg-6">
+              <h6>List of servers</h6>
+              <div
+                role="alert"
+                id="irqb7i-2"
+                z-show-if="transports.length == 0"
+                class="alert alert-primary"
+              >
+                <div class="d-flex align-items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    role="img"
+                    aria-label="Warning:"
+                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                  >
+                    <path
+                      d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                    ></path>
+                  </svg>
+                  <div><span>No SMTP server</span></div>
+                </div>
+              </div>
+              <ul class="list-group">
+                <li
+                  z-bind="transport of transports"
+                  id="im9xit-2"
+                  class="list-group-item d-flex align-items-center"
+                >
+                  <div
+                    z-class="${transport.active?'text-success':'text-danger'}"
+                    id="izy55s-3"
+                    class="me-1"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      icon-filter="circl"
+                      id="ij0ia1-3"
+                      class="bi bi-circle-fill"
+                    >
+                      <circle cx="8" cy="8" r="8"></circle>
+                    </svg>
+                  </div>
+                  <div id="i7kp7e-2" class="me-1">
+                    <label
+                      for="myCheckbox"
+                      id="iyvd02-2"
+                      class="form-check-label"
+                    >
+                      ${transport.code} (${transport.name})
+                    </label>
+                    <div class="text-secondary">${transport.settings.host}</div>
+                  </div>
+                  <div id="i6718z-2" class="flex ms-auto">
+                    <button
+                      type="button"
+                      z-on-click="view.editServer(transport);"
+                      id="itminv"
+                      class="btn btn-primary me-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                        icon-filter="penci"
+                        class="bi bi-pencil"
+                      >
+                        <path
+                          d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      z-on-click="view.deleteServer(transport);"
+                      id="igerhx"
+                      class="btn btn-danger"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                        icon-filter="tra"
+                        class="bi bi-trash"
+                      >
+                        <path
+                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"
+                        ></path>
+                        <path
+                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+              <button
+                type="button"
+                z-on-click="view.addServer()"
+                id="ibgku7-2"
+                class="btn btn-primary w-100 mt-2"
+              >
+                <span>Add a server</span>
+              </button>
+            </div>
+            <div class="col-12 col-lg-6">
+              <h6>Source code</h6>
+              <code lang="js">
+                <pre id="ioyhdi-2">
+                    //example in code
+
+                    //read the existing transports
+                    const transports = await dbApi.db.messages.transport.search({});
+
+                    //add a new SMTP transport
+                    await dbApi.db.messages.transport.create({
+                        code:"mysmtp",
+                        name:"My SMTP",
+                        active: true,
+                        type: "smtp",
+                        settings: {
+                            host: "...",
+                            port: 1234,
+                            secure: false,
+                            auth: {
+                                user: "...",
+                                pass: "..."
+                            },
+                        },
+                    }) ;
+
+                    //modify the transport
+                    await dbApi.db.messages.transport.updateByCode("mysmtp",{
+                        active: true,
+                    }) ;
+
+                    //remove a the transport
+                    await dbApi.db.messages.transport.deleteByCode("mysmtp") ;
+                </pre>
+              </code>
+            </div>
+          </div>
+        </div>
+        <div id="igw10j" class="col-12">
+          <h5 id="usage-send-message" class="mt-5">Send a message</h5>
+          <p>
+            To send a message, you need to create a record in the table
+            <code>messages.message</code>
+          </p>
+          <div role="alert" class="alert alert-primary">
+            <div class="d-flex align-items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                role="img"
+                aria-label="Warning:"
+                class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+              >
+                <path
+                  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                ></path>
+              </svg>
+              <div id="i295uk">
+                By default, the table access is allowed for admin users only.
+                Open the access with caution to avoid to become a spam relay
+              </div>
+            </div>
+          </div>
+          <p id="i2mgn6">
+            For the SMTP transport, the parameters are the one supported by
+            <a href="https://www.nodemailer.com/message/" target="_blank">
+              nodemailer
+            </a>
+            .
+            <br />
+            Below is an example of sending an email (you must create an SMTP
+            transport above to try it)
+          </p>
+          <code lang="json"></code>
+          <div class="row">
+            <div id="ii6bbk-2" class="col-12 col-lg-6">
+              <h6>Try it</h6>
+              <code
+                lang="json"
+                id="list-permission-result-2"
+                z-show-if="listPermissionResult"
+                class="mt-2"
+              >
+                <pre id="isx8er-2-2-2"></pre>
+              </code>
+              <div id="iifdka-2" class="mb-3">
+                <label for="formInput1" id="i2yqhy-2" class="form-label">
+                  Transport to user
+                </label>
+                <select
+                  id="formInput1-4"
+                  z-bind="sendMail.transport"
+                  class="form-control"
+                >
+                  <option
+                    z-bind="transport of transports"
+                    value="${transport.code}"
+                  >
+                    [${transport.code}] ${transport.name}
+                  </option>
+                </select>
+              </div>
+              <div id="in1223-2" class="mb-3">
+                <label for="formInput1" id="i3gb7k-2" class="form-label">
+                  From
+                </label>
+                <input
+                  type="text"
+                  id="ikyi11-2"
+                  z-bind="sendMail.from"
+                  required=""
+                  class="form-control"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="formInput1" class="form-label">To</label>
+                <input
+                  type="text"
+                  z-bind="sendMail.to"
+                  required=""
+                  id="i7y8al"
+                  class="form-control"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="formInput1" class="form-label">Subject</label>
+                <input
+                  type="text"
+                  z-bind="sendMail.subject"
+                  required=""
+                  id="ih8v9e"
+                  class="form-control"
+                />
+              </div>
+              <div id="i3l9cg" class="mb-3">
+                <label for="formInput1" class="form-label">Text</label>
+                <textarea
+                  type="text"
+                  z-bind="sendMail.text"
+                  required=""
+                  id="iwv58s"
+                  class="form-control"
+                ></textarea>
+              </div>
+              <button
+                type="button"
+                z-on-click="view.sendMessage()"
+                id="isdqji-2"
+                class="btn btn-primary w-100 mb-2"
+              >
+                <span id="id81n2-2">Send message</span>
+              </button>
+            </div>
+            <div id="ijsn01" class="col-12 col-lg-6">
+              <h6>Source code</h6>
+              <code lang="js">
+                <pre>
+ //example in code 
+ 
+ //create a message
+ const createdMessage = await dbApi.db.messages.message.create({
+      transport: "mysmtp",
+      parameters: {
+          // any parameter of nodemailer https://www.nodemailer.com/message/
+          from: "sender@mail.com",
+          to: "recipient@mail.com",
+          subject: "You message",
+          text: "Some enternainging message"
+      }
+  }); 
+  //the message is immediatly sent to the transport to be processed
+
+  // you can read messages from the table 
+  const messages = await dbApi.db.messages.message.search(); 
+ 
+
+ </pre
+                >
+              </code>
+            </div>
+            <div id="backOffice-roles" class="col-12">
+              <h5 id="usage-messages-log" class="mt-5">Messages log</h5>
+              <p id="ivg7uu">
+                All messages are saved in the table&nbsp;
+                <code>messages.message</code>
+              </p>
+              <p id="i0oinm">
+                The table contains the information you gave on creation an some
+                other are updated during the transport process
+              </p>
+              <table id="irdlbk" class="table">
+                <thead id="inyf7k">
+                  <tr id="if09tx">
+                    <th scope="col" id="iri1so">Field</th>
+                    <th scope="col" id="i91heg">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="iszy7v"><code id="iij56g">create_time</code></td>
+                    <td id="i7obbm">The message creation tag</td>
+                  </tr>
+                  <tr>
+                    <td id="irgmsj"><code id="i3nqch">transport</code></td>
+                    <td id="iz7tol">The code of used transport</td>
+                  </tr>
+                  <tr>
+                    <td id="inv52w"><code id="izngt8">parameters</code></td>
+                    <td id="iv75hd">
+                      The provided parameters (depends on the transport, see
+                      above for SMTP example)&nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td id="ihfzhq"><code id="i79xv9">status</code></td>
+                    <td id="igogeh">
+                      When the message is created, the status is
+                      <code>to_send</code>
+                      . The transport will then update the status. For example,
+                      the SMTP transport will set it to
+                      <code>sent</code>
+                      or
+                      <code>failed</code>
+                    </td>
+                  </tr>
+                  <tr id="iyk6cq">
+                    <td id="ihfzhq-2"><code id="i79xv9-2">error</code></td>
+                    <td id="igogeh-2">
+                      If the sending failed, it contains the error message
+                    </td>
+                  </tr>
+                  <tr id="iyym89">
+                    <td id="iph1ph"><code id="ip5amf">sent_time</code></td>
+                    <td id="i6hvjg">
+                      If the message is successfully sent, it contains the time
+                      when it has be sent
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p id="ib95ih">
+                All event on message are saved into the table&nbsp;
+                <code>messages.message_log</code>
+              </p>
+              <p id="izg8fj">
+                In the log, there is the following informations :&nbsp;
+              </p>
+              <table id="ivqtpq" class="table">
+                <thead id="i2e40x">
+                  <tr id="isqj0t">
+                    <th scope="col" id="id9skj">Field</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>create_time</code></td>
+                    <td id="i90hez">The log creation time</td>
+                  </tr>
+                  <tr>
+                    <td><code>message_id</code></td>
+                    <td>The id of the message</td>
+                  </tr>
+                  <tr>
+                    <td><code>type</code></td>
+                    <td>
+                      The type of log (depends on the transport, for SMTP, there
+                      is
+                      <code>created</code>
+                      ,
+                      <code>sent</code>
+                      and
+                      <code>error</code>
+                      )
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>message</code></td>
+                    <td>The log description</td>
+                  </tr>
+                  <tr>
+                    <td><code>data</code></td>
+                    <td>Data linked to the event (depends on the transport)</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div id="i8grlo-3" class="row">
+                <div id="iw0ozu-3" class="col-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Create date</th>
+                        <th scope="col">Transport</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Sent time</th>
+                        <th scope="col">To</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Error</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr z-bind="message of lastMessages">
+                        <td>
+                          <db-value
+                            db-schema="messages"
+                            db-table="message"
+                            db-column="create_time"
+                            z-bind="message.create_time"
+                          ></db-value>
+                        </td>
+                        <td>${message.transport}</td>
+                        <td>
+                          <span
+                            z-class="text-bg-${message.status=='failed'?'danger':(message.status=='sent'?'success':'secondary')}"
+                            class="badge"
+                          >
+                            ${message.status}
+                          </span>
+                        </td>
+                        <td>
+                          <db-value
+                            db-schema="messages"
+                            db-table="message"
+                            db-column="sent_time"
+                            z-bind="message.sent_time"
+                          ></db-value>
+                        </td>
+                        <td>${message.parameters.to}</td>
+                        <td>${message.parameters.subject}</td>
+                        <td>${message.error}</td>
+                        <td>
+                          <button
+                            type="button"
+                            id="icppj3"
+                            z-on-click="view.viewMessage(message)"
+                            class="btn btn-outline-primary"
+                          >
+                            Details
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="container d-none">
+              <div class="row">
+                <div class="col-12">
+                  <h3>Create user from public access</h3>
+                  <p></p>
+                </div>
+                <div class="col-12 col-lg-6 col-xxl-4">
+                  <button
+                    type="button"
+                    id="iqeco"
+                    z-on-click="view.testRead()"
+                    class="btn btn-primary"
+                  >
+                    <span>Test read</span>
+                  </button>
+                  <code lang="js"></code>
+                </div>
+                <div class="col-12 col-lg-6 col-xxl-4">
+                  <div class="mb-3">
+                    <label for="formInput1" class="form-label">Login</label>
+                    <input type="text" z-bind="login" class="form-control" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="formInput1" class="form-label">Password</label>
+                    <input
+                      type="password"
+                      z-bind="password"
+                      class="form-control"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    z-on-click="view.login()"
+                    class="btn btn-primary w-100"
+                  >
+                    <span>Login</span>
+                  </button>
+                </div>
+                <div class="col-12 col-lg-6 col-xxl-4">
+                  <span>Logged ? ${logged}</span>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-xxl-12">
+                      <button
+                        type="button"
+                        id="ikc7z"
+                        z-on-click="view.logout()"
+                        class="btn btn-primary"
+                      >
+                        <span>Logout</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="iaks6hq" class="col-12">
+          <h5 id="usage-send-message-attach" class="mt-5">
+            Send a message with attachment (SMTP)
+          </h5>
+          <p>
+            As SMTP transport support nodemailer parameters, you can use its
+            attachment&nbsp; feature to add attachment to the message
+          </p>
+          <p id="ig74hs">
+            As your parameters must be serialized, you cannot use the
+            <code>new Buffer</code>
+            or&nbsp;
+            <code>fs.createReadStream</code>
+            syntax and for security reason, the path parameters to a local file
+            is forbidden
+          </p>
+          <p>
+            The most convenient way to add the attachment is using the data URL
+            syntax
+          </p>
+          <code lang="json"></code>
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <h6>Try it</h6>
+              <code lang="json" z-show-if="listPermissionResult" class="mt-2">
+                <pre></pre>
+              </code>
+              <div class="mb-3">
+                <label for="formInput1" class="form-label">
+                  Transport to user
+                </label>
+                <select z-bind="sendMail.transport" class="form-control">
+                  <option
+                    z-bind="transport of transports"
+                    value="${transport.code}"
+                  >
+                    [${transport.code}] ${transport.name}
+                  </option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="formInput1" class="form-label">From</label>
+                <input
+                  type="text"
+                  z-bind="sendMail.from"
+                  required=""
+                  class="form-control"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="formInput1" class="form-label">To</label>
+                <input
+                  type="text"
+                  z-bind="sendMail.to"
+                  required=""
+                  class="form-control"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="formInput1" class="form-label">Subject</label>
+                <input
+                  type="text"
+                  z-bind="sendMail.subject"
+                  required=""
+                  class="form-control"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="formInput1" class="form-label">Text</label>
+                <textarea
+                  type="text"
+                  z-bind="sendMail.text"
+                  required=""
+                  class="form-control"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="formInput1" class="form-label">Attachment</label>
+                <input
+                  type="file"
+                  z-bind="sendMail.file"
+                  required=""
+                  id="attachFile"
+                  class="form-control"
+                />
+              </div>
+              <button
+                type="button"
+                z-on-click="view.sendMessage()"
+                class="btn btn-primary w-100 mb-2"
+              >
+                <span>Send message</span>
+              </button>
+            </div>
+            <div class="col-12 col-lg-6">
+              <h6>Source code</h6>
+              <code lang="js">
+                <pre id="i3i0hd">
+ //example in code 
+ 
+ //create a message
+ const createdMessage = await dbApi.db.messages.message.create({
+      transport: "mysmtp",
+      parameters: {
+          // any parameter of nodemailer https://www.nodemailer.com/message/
+          from: "sender@mail.com",
+          to: "recipient@mail.com",
+          subject: "You message",
+          text: "Some enternainging message",
+          attachments: [
+            {
+                filename: "filename.ext",
+                //give the file using data url
+                path: "data:text/plain;base64,aGVsbG8gd29ybGQ=""
+            }
+        ]
+      }
+  }); 
+  //the message is immediatly sent to the transport to be processed
+
+  // you can read messages from the table 
+  const messages = await dbApi.db.messages.message.search(); 
+ 
+
+ </pre
+                >
+              </code>
+            </div>
+          </div>
+        </div>
+        <div id="i9omff-2" class="col-12">
+          <h5 id="usage-templates">Templates</h5>
+          <p id="i1dm2h-2">The plugin provide a template system</p>
+          <p id="iycbgt-2">
+            A template is a message definition that can use keywords. Then, we
+            can send a message by giving to the template a data that will be
+            used to fill the keywords placeholders
+          </p>
+          <p id="ijjttv">
+            The templates are stored in the table
+            <code>messages.template</code>
+          </p>
+          <p id="iaq8j7-2">The parameters of template is :&nbsp;</p>
+          <table id="ij17q8-2" class="table">
+            <thead id="imjn1-2">
+              <tr id="i1x8l-2">
+                <th scope="col" id="i1g54k-2">Parameter</th>
+                <th scope="col" id="ihg1p2-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="i13w4v-2">
+                <td id="iglxs-2"><code id="ie92bw-5">code</code></td>
+                <td id="iq2ff-2">
+                  It is a unique code of the template. It must be unique and
+                  will be used to identify the template
+                </td>
+              </tr>
+              <tr id="igx687-2">
+                <td id="izg59-2"><code id="ie92bw-2-2">name</code></td>
+                <td id="i9df8n-2">Description of the template</td>
+              </tr>
+              <tr id="icv2o9-2">
+                <td id="iuk8q-2"><code id="ie92bw-3-2">transport</code></td>
+                <td id="iezdtp-2">The transport to use to send the message</td>
+              </tr>
+              <tr id="itgz0b-3">
+                <td id="ittikg-3"><code id="ie92bw-4-3">parameters</code></td>
+                <td id="icvirg-3">
+                  The message parameters (depends on the transport, see above
+                  for SMTP examples)&nbsp;
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="ioinu5">
+            The
+            <code>parameters</code>
+            can contains keywords placeholder, for example :&nbsp;
+          </p>
+          <code lang="json" id="ivjx9f">
+            <pre id="iv6hw1">
+    {
+          "from": "sender@mail.com",
+          "to": "\${email_address}",
+          "subject": "Your order is ready",
+          "text": "Dear \${customer_name}, Your order is ready for pickup. Please find the details attached.",
+          "attachments": [
+                {
+                  "filename": "order_\${order_number}.pdf",
+                  "path": "data:application/pdf;base64,\${order_pdf_base64}"
+                }
+          ]
+    }</pre
+            >
+          </code>
+          <div id="iij56k-2-2" class="row">
+            <div id="ibenpa-2" class="col-12 col-lg-6">
+              <h6>List of templates</h6>
+              <div
+                role="alert"
+                id="irqb7i-2-2"
+                z-show-if="transports.length == 0"
+                class="alert alert-primary"
+              >
+                <div class="d-flex align-items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    role="img"
+                    aria-label="Warning:"
+                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                  >
+                    <path
+                      d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                    ></path>
+                  </svg>
+                  <div><span>No SMTP template</span></div>
+                </div>
+              </div>
+              <ul class="list-group">
+                <li
+                  z-bind="template of templates"
+                  id="im9xit-2-2"
+                  class="list-group-item d-flex align-items-center"
+                >
+                  <div id="i7kp7e-2-2" class="me-1">
+                    <label
+                      for="myCheckbox"
+                      id="iyvd02-2-2"
+                      class="form-check-label"
+                    >
+                      ${template.code} (${template.name})
+                    </label>
+                  </div>
+                  <div id="i6718z-2-2" class="flex ms-auto">
+                    <button
+                      type="button"
+                      z-on-click="view.sendMessageTemplate(template);"
+                      id="itminv-2"
+                      class="btn btn-outline-primary me-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                        icon-filter="env"
+                        class="bi bi-envelope-plus-fill"
+                      >
+                        <path
+                          d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 4.697v4.974A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-1.965.45l-.338-.207z"
+                        ></path>
+                        <path
+                          d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      z-on-click="view.editTemplate(template);"
+                      id="itminv-2-2"
+                      class="btn btn-primary me-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                        icon-filter="penci"
+                        class="bi bi-pencil"
+                      >
+                        <path
+                          d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      z-on-click="view.deleteTemplate(template);"
+                      id="igerhx-2"
+                      class="btn btn-danger"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                        icon-filter="tra"
+                        class="bi bi-trash"
+                      >
+                        <path
+                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"
+                        ></path>
+                        <path
+                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+              <button
+                type="button"
+                z-on-click="view.addTemplate()"
+                id="ibgku7-2-2"
+                class="btn btn-primary w-100 mt-2"
+              >
+                <span id="igryvs">Add a template</span>
+              </button>
+            </div>
+            <div id="i2o6mr" class="col-12 col-lg-6">
+              <h6>Source code</h6>
+              <code lang="js">
+                <pre id="ioyhdi-2-2">
+                    //example in code
+
+                    //read the existing templates
+                    const templates = await dbApi.db.messages.template.search({});
+
+                    //add a new template
+                    await dbApi.db.messages.template.create({
+                        code: "mytemplate",
+                        name: "My Template",
+                        transport: "transportcode",
+                        parameters: {
+                            from: "sender@mail.com",
+                            to: "${email_address}",
+                            subject: "Your order is ready",
+                            text: "Dear ${customer.name}, Your order is ready for pickup. Please find the details attached.",
+                            attachments: [
+                                {
+                                    filename: "order_${order_number}.pdf",
+                                    path: "data:application/pdf;base64,${order_pdf_base64}"
+                                }
+                            ]
+                        },
+                    }) ;
+
+                    //remove a the template
+                    await dbApi.db.messages.template.deleteByCode("mytemplate") ;
+
+
+                    //send a message using the template
+                    const messageId = await dbApi.db.messages.mutations.create_from_template({
+                        input: {
+                            template_code: "mytemplate", //The template to use
+                            data: {
+                                // give values for all keywords
+                                email_address: "my.customer@mail.com",
+                                customer: {
+                                    name: "My Customer Name"
+                                },
+                                order_number: "1234",
+                                order_pdf_base64: "..."
+                            }
+                        }
+                    }) ;
+                    // it return the id of the created message
+
+
+                </pre>
+              </code>
+            </div>
+          </div>
+        </div>
+        <div id="iir53b" class="col-12">
+          <h5 id="usage-security" class="mt-5">Handle security access</h5>
+          <p id="ihzjil">TO COMPLETE</p>
+          <code lang="json"></code>
+        </div>
+        <div id="backOffice-2" class="col-12">
+          <h4 id="create">Create transports</h4>
+          <p>TO COMPLETE</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

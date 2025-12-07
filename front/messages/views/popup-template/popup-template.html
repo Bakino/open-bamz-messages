@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div id="iy05r9" class="col-12">
+        <form>
+      <h6>Template message</h6>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">Code</label>
+        <input
+          type="text"
+          z-bind="template.code"
+          required=""
+          id="i2asb"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">Name</label>
+        <input
+          type="text"
+          z-bind="template.name"
+          required=""
+          id="ikv4m"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">Transport to use</label>
+        <select z-bind="template.transport" class="form-control">
+          <option z-bind="transport of transports" value="${transport.code}">
+            [${transport.code}] ${transport.name}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">From</label>
+        <input
+          type="text"
+          z-bind="template.parameters.from"
+          required=""
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">To</label>
+        <input
+          type="text"
+          z-bind="template.parameters.to"
+          required=""
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">Subject</label>
+        <input
+          type="text"
+          z-bind="template.parameters.subject"
+          required=""
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">Text</label>
+        <textarea
+          type="text"
+          z-bind="template.parameters.text"
+          required=""
+          class="form-control"
+        ></textarea>
+      </div>
+      <button
+        type="button"
+        z-on-click="view.validate()"
+        class="btn btn-primary w-100 mb-2"
+      >
+        <span>Save template</span>
+      </button>
+        </form>
+    </div>
+  </div>
+</div>

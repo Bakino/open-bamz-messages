@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div id="iy05r9" class="col-12">
+      <h6>Send a message from template</h6>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">
+          Template params (JSON format)
+        </label>
+        <textarea
+          type="text"
+          z-bind="params"
+          required=""
+          id="if0v1"
+          placeholder='{ "foo": "", "bar": "" }'
+          class="form-control"
+        ></textarea>
+      </div>
+      <button
+        type="button"
+        z-on-click="view.sendMessage()"
+        class="btn btn-primary w-100 mb-2"
+      >
+        <span>Send message</span>
+      </button>
+    </div>
+  </div>
+</div>

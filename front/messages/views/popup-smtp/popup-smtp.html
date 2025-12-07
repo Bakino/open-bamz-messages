@@ -1,0 +1,110 @@
+<form>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="mb-3">
+          <label for="formInput1" class="form-label">Code</label>
+          <input
+            type="text"
+            id="formInput1"
+            z-bind="code"
+            required=""
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="mb-3">
+          <label for="formInput1" class="form-label">Name</label>
+          <input
+            type="text"
+            z-bind="name"
+            id="i3w7m"
+            required=""
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div id="iuj6x" class="col-6 col-xxl-9">
+        <div class="mb-3">
+          <label for="formInput1" class="form-label">Host</label>
+          <input
+            type="text"
+            z-bind="settings.host"
+            id="iv2fs"
+            required=""
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="col-6 col-xxl-3">
+        <div class="mb-3">
+          <label for="formInput1" class="form-label">Port</label>
+          <input
+            type="text"
+            z-bind="settings.port"
+            required=""
+            id="igv9k"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input
+            type="checkbox"
+            value=""
+            id="myCheckbox-2"
+            z-bind="settings.secure"
+            class="form-check-input"
+          />
+          <label for="myCheckbox-2" class="form-check-label">Secure</label>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="mb-3">
+          <label for="formInput1" class="form-label">Login</label>
+          <input
+            type="email"
+            z-bind="settings.auth.user"
+            required=""
+            id="ibskj"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="mb-3">
+          <label for="formInput1" class="form-label">Password</label>
+          <input
+            type="text"
+            z-bind="settings.auth.pass"
+            required=""
+            id="iv97s"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input
+            type="checkbox"
+            value=""
+            z-bind="active"
+            class="form-check-input"
+          />
+          <label for="myCheckbox-2" class="form-check-label">Active</label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button
+          type="button"
+          z-on-click="view.validate()"
+          class="btn btn-primary w-100"
+        >
+          <span>Validate</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div id="iy05r9" class="col-12">
+      <h6>Send a message</h6>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">Transport to user</label>
+        <select z-bind="sendMail.transport" class="form-control">
+          <option z-bind="transport of transports" value="${transport.code}">
+            [${transport.code}] ${transport.name}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">From</label>
+        <input
+          type="text"
+          z-bind="sendMail.from"
+          required=""
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">To</label>
+        <input
+          type="text"
+          z-bind="sendMail.to"
+          required=""
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">Subject</label>
+        <input
+          type="text"
+          z-bind="sendMail.subject"
+          required=""
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">Text</label>
+        <textarea
+          type="text"
+          z-bind="sendMail.text"
+          required=""
+          class="form-control"
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="formInput1" class="form-label">Attachment</label>
+        <input
+          type="file"
+          z-bind="sendMail.file"
+          required=""
+          id="attachFile"
+          class="form-control"
+        />
+      </div>
+      <button
+        type="button"
+        z-on-click="view.sendMessage()"
+        class="btn btn-primary w-100 mb-2"
+      >
+        <span>Send message</span>
+      </button>
+    </div>
+  </div>
+</div>

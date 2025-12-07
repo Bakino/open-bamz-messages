@@ -1,0 +1,73 @@
+<div class="container mt-5">
+  <div id="i8grlo-3" class="row align-items-center">
+    <div class="col-12 col-xxl-8"><h2 class="mb-0">Messages</h2></div>
+    <div class="col-12 col-xxl-4 text-end">
+      <button
+        type="button"
+        id="i475x"
+        z-on-click="view.refresh()"
+        class="btn btn-primary"
+      >
+        <span>Refresh</span>
+      </button>
+    </div>
+    <div id="iw0ozu-3" class="col-12 pt-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Create date</th>
+            <th scope="col">Transport</th>
+            <th scope="col">Status</th>
+            <th scope="col">Sent time</th>
+            <th scope="col">To</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Error</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr z-bind="message of lastMessages">
+            <td>
+              <db-value
+                db-schema="messages"
+                db-table="message"
+                db-column="create_time"
+                z-bind="message.create_time"
+              ></db-value>
+            </td>
+            <td>${message.transport}</td>
+            <td>
+              <span
+                z-class="text-bg-${message.status=='failed'?'danger':(message.status=='sent'?'success':'secondary')}"
+                class="badge"
+              >
+                ${message.status}
+              </span>
+            </td>
+            <td>
+              <db-value
+                db-schema="messages"
+                db-table="message"
+                db-column="sent_time"
+                z-bind="message.sent_time"
+              ></db-value>
+            </td>
+            <td>${message.parameters.to}</td>
+            <td>${message.parameters.subject}</td>
+            <td>${message.error}</td>
+            <td>
+              <button
+                type="button"
+                id="icppj3"
+                z-on-click="view.viewMessage(message)"
+                class="btn btn-outline-primary"
+              >
+                Details
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
