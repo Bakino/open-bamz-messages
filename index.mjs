@@ -44,7 +44,7 @@ export const prepareDatabase = async ({ client, grantSchemaAccess }) => {
             plv8.execute("INSERT INTO messages.message_log(message_id, type, message) VALUES ($1, $2, $3)", 
                     [NEW._id, "created", "Message created"]);
             plv8.execute("SELECT graphile_worker.add_job('runPluginTask', $1)", 
-                [{plugin: 'messages', task : 'tasks/sendMessage.mjs', params: {messageId: NEW._id}}]);
+                [{plugin: 'open-bamz-messages', task : 'tasks/sendMessage.mjs', params: {messageId: NEW._id}}]);
         $$ LANGUAGE "plv8" SECURITY DEFINER`)
 
     await client.query(`CREATE OR REPLACE TRIGGER trigger_send_message
@@ -242,8 +242,8 @@ export const initPlugin = async ({ loadPluginData, graphql, hasCurrentPlugin, co
 
     loadPluginData(async ({pluginsData})=>{
         // register the SMTP transporter
-        if(pluginsData?.["messages"]?.pluginSlots?.transporters){
-            pluginsData?.["messages"]?.pluginSlots?.transporters.push( {
+        if(pluginsData?.["open-bamz-messages"]?.pluginSlots?.transporters){
+            pluginsData?.["open-bamz-messages"]?.pluginSlots?.transporters.push( {
                 type: "smtp",
                 sendMessage: sendMessage
             }) ;
@@ -257,7 +257,7 @@ export const initPlugin = async ({ loadPluginData, graphql, hasCurrentPlugin, co
         //frontEndLib: "lib/db-loader.mjs",
         menu: [
             { name: "admin", entries: [
-                { name: "Messages", link: "/plugin/open-bamz-messages/" }
+                { name: "Messages", link: "/plugin/open-bamz-messages/messages" }
             ]}
         ],
         pluginSlots: {

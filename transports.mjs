@@ -6,7 +6,7 @@ export function init({appContext}) {
 
 export async function runTransport({appName, transport, messageParams}) {
     let appContext = await contextOfApp(appName) ;
-    let allTransporters = appContext.pluginsData["messages"]?.pluginSlots?.transporters??[] ;
+    let allTransporters = appContext.pluginsData["open-bamz-messages"]?.pluginSlots?.transporters??[] ;
     
     let transporter = allTransporters.find(t => t.type === transport.type) ;
     if(!transporter){

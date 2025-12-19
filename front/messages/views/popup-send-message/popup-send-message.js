@@ -3,9 +3,11 @@
 view.loader = async ()=>{
 
     const transports = await dbApi.db.messages.transport.search() ;
+    const sendMail = {} ;
 
     return {
         transports,
+        sendMail
     }
 }
 

@@ -5,7 +5,7 @@
     {
       "url": "/",
       "path": "root",
-      "routes": [
+      "subRoutes": [
         {
           "url": "/settings",
           "path": "settings"
@@ -31,28 +31,28 @@
     },
      {
       "url": "/popup-smtp{/:code}",
-      "path": "views/popup-smtp"
+      "path": "popup-smtp"
     },
     {
       "url": "/popup-message-detail/:id",
-      "path": "views/popup-message-detail"
+      "path": "popup-message-detail"
     },
     {
       "url": "/popup-send-message",
-      "path": "views/popup-send-message"
+      "path": "popup-send-message"
     },
     {
       "url": "/popup-template{/:code}",
-      "path": "views/popup-template"
+      "path": "popup-template"
     },
     {
       "url": "/popup-template-send-mail/:template",
-      "path": "views/popup-template-send-mail"
+      "path": "popup-template-send-mail"
     }
   ],
   "extensions": [
     { "url": "https://cdn.jsdelivr.net/gh/Bakino/open-bamz-database@68c8323a62db4aa1253000e8033aa90dc8d1ce5e/front/lib/viewz-dbadmin.mjs" },
-    { "url": "https://cdn.jsdelivr.net/gh/Bakino/open-bamz-bootstrap@latest/front/lib/viewz-bootstrap5.mjs" },
+    { "url": "https://cdn.jsdelivr.net/gh/Bakino/open-bamz-bootstrap@e2d044437e3ef435b64255c2d117caa85e538ec7/front/lib/viewz-bootstrap5.mjs" },
     { "url": "/plugin/open-bamz-users/lib/viewz-users.mjs" }
   ]
 } 
