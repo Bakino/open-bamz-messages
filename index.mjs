@@ -219,7 +219,11 @@ export const prepareDatabase = async ({ client, grantSchemaAccess }) => {
     $$ LANGUAGE "plv8" SECURITY DEFINER`);
 
 
-    await grantSchemaAccess("messages", "admin"); ;
+    await grantSchemaAccess("messages", [
+        { role: "admin", level: "admin" },
+        { role: "user", level: "none" },
+        { role: "readonly", level: "none" },
+    ]); ;
 }
 
 /**
