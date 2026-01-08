@@ -883,6 +883,35 @@
     }</pre
             >
           </code>
+
+
+          <p id="ioinu5">
+            The
+            <code>parameters</code>
+            can also call a database function usinf the syntax <code>{{my_function('param', '${placeholder_to_send_as_param}')}}</code>.
+          </p>
+          <p>
+            Remember that it is database functions, don't call it with double quote. The <code>${placeholders}</code> are replaced before the functions are called.
+            <br>
+            In the example below, we call the function <code>i18n.tr</code> provided by the i18n plugin to translate a text in the language of the user.
+          </p>
+          <code lang="json" id="ivjx9f">
+            <pre id="iv6hw1">
+    {
+          "from": "sender@mail.com",
+          "to": "\${email_address}",
+          "subject": "Your order is ready",
+          "text": "This will be translated in the lang of the user : {{i18n.tr('Dear customer', '${user.lang}')}}",
+          "attachments": [
+                {
+                  "filename": "order_\${order_number}.pdf",
+                  "path": "data:application/pdf;base64,\${order_pdf_base64}"
+                }
+          ]
+    }</pre
+            >
+          </code>
+
           <div id="iij56k-2-2" class="row">
             <div id="ibenpa-2" class="col-12 col-lg-6">
               <h6>List of templates</h6>

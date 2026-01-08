@@ -186,9 +186,27 @@ export const prepareDatabase = async ({ client, grantSchemaAccess }) => {
         function mergeParams(params){
             for(let key in params){
                 let value = params[key];
-                if(typeof(value) == "string" && value.includes("\${")){
-                    let funcValue = new Function(Object.keys(mergeData), "return \`"+value+"\`")
-                    params[key] = funcValue.apply(null, Object.values(mergeData)) ;
+                if(typeof(value) == "string"){
+                    if(value.includes("\${")){
+                        let funcValue = new Function(Object.keys(mergeData), "return \`"+value+"\`")
+                        value = funcValue.apply(null, Object.values(mergeData)) ;
+                    }
+                    // search for expressions like \${aFunction('a value')}
+                    const regex = /\\{\\{([^}]+)\\}\\}/g;
+                    value = value.replace(regex, (match, expr) => {
+                        expr = expr .trim();
+                        // detect a function-call like pattern: has parentheses
+                        if(expr.indexOf('(') !== -1 && expr.endsWith(')')){
+                            try{
+                                let res = plv8.execute("SELECT "+expr+" AS result")[0].result ;
+                                return (res === undefined || res === null) ? "" : String(res);
+                            }catch(e){
+                                return e.message;
+                            }
+                        }
+                        return match;
+                    });
+                    params[key] = value;
                 } else if(typeof(value) == "object"){
                     if(Array.isArray(value)){
                         for(let v of value){
